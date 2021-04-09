@@ -14,28 +14,28 @@
 
 
 {% block content %}
-    {% for new in news %}
-    <div class="card mb-3">
-        <div class="card-header">
-            Категория: {{ new.category }}
-        </div>
-        <div class="card-body">
-            <div class="media">
-                {% if new.photo %}
-                <img src="{{ new.photo.url }}" alt="" width="350" class="mr-3">
-                {% else %}
-                <img src="https://picsum.photos/200/300" alt="" class="mr-3">
-                {% endif %}
-                <div class="media-body">
-                    <h5 class="card-title">{{ new.title }}</h5>
-                    <p class="card-text">{{ new.content }}</p>
-                    <a href="#" class="btn btn-primary">Read more..</a>
-                </div>
+{% for new in news %}
+<div class="card mb-3">
+    <div class="card-header">
+        Категория: {{ new.category }}
+    </div>
+    <div class="card-body">
+        <div class="media">
+            {% if new.photo %}
+            <img src="{{ new.photo.url }}" alt="" width="350" class="mr-3">
+            {% else %}
+            <img src="https://picsum.photos/200/300" alt="" class="mr-3">
+            {% endif %}
+            <div class="media-body">
+                <h5 class="card-title">{{ new.title }}</h5>
+                <p class="card-text">{{ new.content }}</p>
+                <a href="#" class="btn btn-primary">Читать далее..</a>
             </div>
         </div>
-        <div class="card-footer text-muted">
-            {{ new.created_at|date:"Y-m-d" }}
-        </div>
     </div>
-    {% endfor %}
+    <div class="card-footer text-muted">
+        {{ new.created_at|date:"Y-m-d" }}
+    </div>
+</div>
+{% endfor %}
 {% endblock %}
